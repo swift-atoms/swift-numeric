@@ -1,4 +1,4 @@
-public import Numeric_Primitives_Core
+public import Numeric_Core
 
 extension Double {
 

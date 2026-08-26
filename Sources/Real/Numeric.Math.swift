@@ -1,4 +1,4 @@
-public import Numeric_Primitives_Core
+public import Numeric_Core
 import Numeric_Shims
 
 extension Numeric.Math {

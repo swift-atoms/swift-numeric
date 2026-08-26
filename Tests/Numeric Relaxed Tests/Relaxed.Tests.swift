@@ -1,4 +1,4 @@
-import Numeric_Primitives_Test_Support
+import Numeric_Test_Support
 import Testing
 
 @Suite("Numeric.Relaxed")

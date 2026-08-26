@@ -1,6 +1,6 @@
 import Testing
 
-@testable import Integer_Primitives
+@testable import Integer
 
 @Suite("Numeric.Integer.gcd")
 struct NumericIntegerGCDTests {

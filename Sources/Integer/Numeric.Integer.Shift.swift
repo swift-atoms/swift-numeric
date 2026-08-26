@@ -1,4 +1,4 @@
-import Numeric_Primitives_Core
+import Numeric_Core
 
 extension Numeric.Integer {
 
