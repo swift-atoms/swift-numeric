@@ -5,7 +5,7 @@ extension Numeric.Integer {
         let value: T
 
         @usableFromInline
-        internal init(_ value: T) {
+        package init(_ value: T) {
             self.value = value
         }
     }

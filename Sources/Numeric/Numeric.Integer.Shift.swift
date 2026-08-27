@@ -5,7 +5,7 @@ extension Numeric.Integer {
         let value: T
 
         @usableFromInline
-        internal init(_ value: T) {
+        package init(_ value: T) {
             self.value = value
         }
     }
@@ -27,14 +27,14 @@ extension Numeric.Integer.Shift {
         if count >= value.bitWidth {
 
             if value.bitWidth <= 1 {
-                return T(Int8(value).shifted.right(by: count, rounding: rule))
+                return T(Numeric.Integer.Shift(Int8(value)).right(by: count, rounding: rule))
             }
 
             let shiftCount = count - (value.bitWidth - 1)
             let floor = value >> shiftCount
             let lost = value - (floor << shiftCount)
             let sticky = floor | (lost == 0 ? 0 : 1)
-            return sticky.shifted.right(by: value.bitWidth - 1, rounding: rule)
+            return Numeric.Integer.Shift(sticky).right(by: value.bitWidth - 1, rounding: rule)
         }
 
         let mask = (T.Magnitude(1) << count) - 1
