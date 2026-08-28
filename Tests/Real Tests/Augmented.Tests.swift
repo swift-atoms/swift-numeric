@@ -1,4 +1,4 @@
-import Real_Primitives
+import Real
 import Testing
 
 @Suite("Numeric.Augmented")

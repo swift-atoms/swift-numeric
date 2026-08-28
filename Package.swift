@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "swift-numeric-primitives",
+    name: "swift-numeric",
     platforms: [
         .macOS(.v27),
         .iOS(.v27),
@@ -12,23 +12,22 @@ let package = Package(
         .visionOS(.v27),
     ],
     products: [
-        .library(name: "Numeric Primitives", targets: ["Numeric Primitives"]),
-        .library(name: "Numeric Primitives Core", targets: ["Numeric Primitives Core"]),
-        .library(name: "Real Primitives", targets: ["Real Primitives"]),
-        .library(name: "Numeric Relaxed Primitives", targets: ["Numeric Relaxed Primitives"]),
-        .library(name: "Integer Primitives", targets: ["Integer Primitives"]),
+        .library(name: "Numeric", targets: ["Numeric"]),
+        .library(name: "Real", targets: ["Real"]),
+        .library(name: "Numeric Relaxed", targets: ["Numeric Relaxed"]),
+        .library(name: "Integer", targets: ["Integer"]),
         .library(
-            name: "Numeric Primitives Test Support",
-            targets: ["Numeric Primitives Test Support"]
+            name: "Numeric Test Support",
+            targets: ["Numeric Test Support"]
         ),
     ],
     dependencies: [
         .package(
-            url: "https://github.com/swift-primitives/swift-tagged-primitives.git",
+            url: "https://github.com/swift-atoms/swift-tagged.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-primitives/swift-pair-primitives.git",
+            url: "https://github.com/swift-atoms/swift-pair.git",
             branch: "main"
         ),
     ],
@@ -40,64 +39,54 @@ let package = Package(
         ),
 
         .target(
-            name: "Numeric Primitives Core",
+            name: "Numeric",
             dependencies: [
-                .product(name: "Tagged Primitives", package: "swift-tagged-primitives"),
-                .product(name: "Pair Primitives", package: "swift-pair-primitives"),
+                .product(name: "Tagged", package: "swift-tagged"),
+                .product(name: "Pair", package: "swift-pair"),
             ]
         ),
 
         .target(
-            name: "Real Primitives",
-            dependencies: ["Numeric Primitives Core", "Numeric Shims"]
+            name: "Real",
+            dependencies: [.target(name: "Numeric"), .target(name: "Numeric Shims")]
         ),
 
         .target(
-            name: "Numeric Relaxed Primitives",
-            dependencies: ["Numeric Primitives Core", "Numeric Shims"]
+            name: "Numeric Relaxed",
+            dependencies: [.target(name: "Numeric"), .target(name: "Numeric Shims")]
         ),
 
         .target(
-            name: "Integer Primitives",
-            dependencies: ["Numeric Primitives Core"]
+            name: "Integer",
+            dependencies: [.target(name: "Numeric")]
         ),
-
-        .target(
-            name: "Numeric Primitives",
+        .testTarget(
+            name: "Real Tests",
             dependencies: [
-                "Numeric Primitives Core",
-                "Real Primitives",
-                "Numeric Relaxed Primitives",
-                "Integer Primitives",
+                .target(name: "Real")
             ]
         ),
         .testTarget(
-            name: "Real Primitives Tests",
+            name: "Numeric Relaxed Tests",
             dependencies: [
-                "Real Primitives"
+                .target(name: "Numeric Relaxed"),
+                .target(name: "Numeric Test Support"),
             ]
         ),
         .testTarget(
-            name: "Numeric Relaxed Primitives Tests",
+            name: "Integer Tests",
             dependencies: [
-                "Numeric Relaxed Primitives",
-                "Numeric Primitives Test Support",
-            ]
-        ),
-        .testTarget(
-            name: "Integer Primitives Tests",
-            dependencies: [
-                "Integer Primitives"
+                .target(name: "Integer")
             ]
         ),
 
         .target(
-            name: "Numeric Primitives Test Support",
+            name: "Numeric Test Support",
             dependencies: [
-                "Numeric Primitives",
+                .target(name: "Numeric"),
                 .product(
-                    name: "Tagged Primitives Test Support",
-                    package: "swift-tagged-primitives"
+                    name: "Tagged Test Support",
+                    package: "swift-tagged"
                 ),
             ],
             path: "Tests/Support"
