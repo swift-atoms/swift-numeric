@@ -12,50 +12,95 @@ let package = Package(
         .visionOS(.v27),
     ],
     products: [
+        .library(name: "Numeric", targets: ["Numeric"]),
+        .library(name: "Numeric Core", targets: ["Numeric Core"]),
+        .library(name: "Real", targets: ["Real"]),
+        .library(name: "Numeric Relaxed", targets: ["Numeric Relaxed"]),
+        .library(name: "Integer", targets: ["Integer"]),
         .library(
-            name: "Numeric",
-            targets: ["Numeric"]
-        ),
-        .library(
-            name: "Numeric Standard Library Integration",
-            targets: ["Numeric Standard Library Integration"]
-        ),
-        .library(
-            name: "Numeric Apple Foundation Integration",
-            targets: ["Numeric Apple Foundation Integration"]
+            name: "Numeric Test Support",
+            targets: ["Numeric Test Support"]
         ),
     ],
-    dependencies: [],
+    dependencies: [
+        .package(
+            url: "https://github.com/swift-molecules/swift-tagged.git",
+            branch: "main"
+        ),
+        .package(
+            url: "https://github.com/swift-molecules/swift-pair.git",
+            branch: "main"
+        ),
+    ],
     targets: [
+
         .target(
             name: "Numeric Shims",
             publicHeadersPath: "include"
         ),
+
+        .target(
+            name: "Numeric Core",
+            dependencies: [
+                .product(name: "Tagged", package: "swift-tagged"),
+                .product(name: "Pair", package: "swift-pair"),
+            ]
+        ),
+
+        .target(
+            name: "Real",
+            dependencies: ["Numeric Core", "Numeric Shims"]
+        ),
+
+        .target(
+            name: "Numeric Relaxed",
+            dependencies: ["Numeric Core", "Numeric Shims"]
+        ),
+
+        .target(
+            name: "Integer",
+            dependencies: ["Numeric Core"]
+        ),
+
         .target(
             name: "Numeric",
-            dependencies: ["Numeric Shims"]
-        ),
-        .target(
-            name: "Numeric Standard Library Integration",
-            dependencies: ["Numeric"]
-        ),
-        .target(
-            name: "Numeric Apple Foundation Integration",
             dependencies: [
-                "Numeric",
-                "Numeric Standard Library Integration",
+                "Numeric Core",
+                "Real",
+                "Numeric Relaxed",
+                "Integer",
             ]
         ),
         .testTarget(
-            name: "Numeric Tests",
-            dependencies: ["Numeric"]
+            name: "Real Tests",
+            dependencies: [
+                "Real"
+            ]
         ),
         .testTarget(
-            name: "Numeric Standard Library Integration Tests",
+            name: "Numeric Relaxed Tests",
+            dependencies: [
+                "Numeric Relaxed",
+                "Numeric Test Support",
+            ]
+        ),
+        .testTarget(
+            name: "Integer Tests",
+            dependencies: [
+                "Integer"
+            ]
+        ),
+
+        .target(
+            name: "Numeric Test Support",
             dependencies: [
                 "Numeric",
-                "Numeric Standard Library Integration",
-            ]
+                .product(
+                    name: "Tagged Test Support",
+                    package: "swift-tagged"
+                ),
+            ],
+            path: "Tests/Support"
         ),
     ],
     swiftLanguageModes: [.v6]
