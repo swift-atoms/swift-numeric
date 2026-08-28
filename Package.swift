@@ -13,7 +13,6 @@ let package = Package(
     ],
     products: [
         .library(name: "Numeric", targets: ["Numeric"]),
-        .library(name: "Numeric Core", targets: ["Numeric Core"]),
         .library(name: "Real", targets: ["Real"]),
         .library(name: "Numeric Relaxed", targets: ["Numeric Relaxed"]),
         .library(name: "Integer", targets: ["Integer"]),
@@ -24,11 +23,11 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/swift-molecules/swift-tagged.git",
+            url: "https://github.com/swift-atoms/swift-tagged.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-molecules/swift-pair.git",
+            url: "https://github.com/swift-atoms/swift-pair.git",
             branch: "main"
         ),
     ],
@@ -40,7 +39,7 @@ let package = Package(
         ),
 
         .target(
-            name: "Numeric Core",
+            name: "Numeric",
             dependencies: [
                 .product(name: "Tagged", package: "swift-tagged"),
                 .product(name: "Pair", package: "swift-pair"),
@@ -49,52 +48,42 @@ let package = Package(
 
         .target(
             name: "Real",
-            dependencies: ["Numeric Core", "Numeric Shims"]
+            dependencies: [.target(name: "Numeric"), .target(name: "Numeric Shims")]
         ),
 
         .target(
             name: "Numeric Relaxed",
-            dependencies: ["Numeric Core", "Numeric Shims"]
+            dependencies: [.target(name: "Numeric"), .target(name: "Numeric Shims")]
         ),
 
         .target(
             name: "Integer",
-            dependencies: ["Numeric Core"]
-        ),
-
-        .target(
-            name: "Numeric",
-            dependencies: [
-                "Numeric Core",
-                "Real",
-                "Numeric Relaxed",
-                "Integer",
-            ]
+            dependencies: [.target(name: "Numeric")]
         ),
         .testTarget(
             name: "Real Tests",
             dependencies: [
-                "Real"
+                .target(name: "Real")
             ]
         ),
         .testTarget(
             name: "Numeric Relaxed Tests",
             dependencies: [
-                "Numeric Relaxed",
-                "Numeric Test Support",
+                .target(name: "Numeric Relaxed"),
+                .target(name: "Numeric Test Support"),
             ]
         ),
         .testTarget(
             name: "Integer Tests",
             dependencies: [
-                "Integer"
+                .target(name: "Integer")
             ]
         ),
 
         .target(
             name: "Numeric Test Support",
             dependencies: [
-                "Numeric",
+                .target(name: "Numeric"),
                 .product(
                     name: "Tagged Test Support",
                     package: "swift-tagged"

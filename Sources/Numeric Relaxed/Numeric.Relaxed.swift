@@ -1,4 +1,4 @@
-public import Numeric_Core
+public import Numeric
 public import Numeric_Shims
 
 extension Numeric {

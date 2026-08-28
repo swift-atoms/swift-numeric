@@ -1,4 +1,4 @@
-# Numeric
+# Numeric Primitives
 
 ![Development Status](https://img.shields.io/badge/status-active--development-blue.svg)
 
@@ -32,7 +32,7 @@ let (head, tail) = Numeric.Augmented.sum(1e16, 1.0)  // head == 1e16, tail == 1.
 let s = Numeric.Sign(-5.0)              // .negative
 ```
 
-`Numeric.Augmented` implements the classic error-free transforms (TwoSum, TwoProduct) used to build compensated summation and dot products; `Numeric.Relaxed` exposes the fast, fused counterparts. Higher-level packages compose these into matrices, decimals, and geometry; this package is the shared numeric core they build on.
+`Numeric.Augmented` implements the classic error-free transforms (TwoSum, TwoProduct) used to build compensated summation and dot products; `Numeric.Relaxed` exposes the fast, fused counterparts. Higher-level packages compose these into matrices, decimals, and geometry; this package is the shared numeric they build on.
 
 ---
 
@@ -40,7 +40,7 @@ let s = Numeric.Sign(-5.0)              // .negative
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/swift-molecules/swift-numeric.git", branch: "main")
+    .package(url: "https://github.com/swift-atoms/swift-numeric.git", branch: "main")
 ]
 ```
 
@@ -63,11 +63,11 @@ Five library products plus a test-support product, built on `swift-tagged` and `
 
 | Product | Target | Purpose |
 |---------|--------|---------|
-| `Numeric` | `Sources/Numeric/` | Umbrella — re-exports Core, Real, Relaxed, and Integer. |
-| `Numeric Core` | `Sources/Numeric Core/` | Core namespace: `Numeric.Sign`, `Numeric.Ternary`, `Numeric.Rounding`, `Numeric.Quantized`, `Numeric.Math`, and the `Transcendental` protocol. |
-| `Real` | `Sources/Real/` | The `.math` accessor and `Transcendental` conformances on `Double` / `Float` / `Float16`, plus `Numeric.Augmented` (error-free transforms) and `Numeric.Fraction`. |
-| `Numeric Relaxed` | `Sources/Numeric Relaxed/` | `Numeric.Relaxed` fast/fused arithmetic (`sum`, `product`, `multiplyAdd`). Carved out so `Numeric Shims` does not leak through the Real interface. |
-| `Integer` | `Sources/Integer/` | Integer `division` (all rounding modes), `gcd` / `lcm`, rotation, shift, saturating arithmetic, and the optional-producing `+?` operators. |
+| `Numeric Primitives` | `Sources/Numeric Primitives/` | Umbrella — re-exports Core, Real, Relaxed, and Integer. |
+| `Numeric Primitives Core` | `Sources/Numeric Primitives Core/` | namespace: `Numeric.Sign`, `Numeric.Ternary`, `Numeric.Rounding`, `Numeric.Quantized`, `Numeric.Math`, and the `Transcendental` protocol. |
+| `Real Primitives` | `Sources/Real Primitives/` | The `.math` accessor and `Transcendental` conformances on `Double` / `Float` / `Float16`, plus `Numeric.Augmented` (error-free transforms) and `Numeric.Fraction`. |
+| `Numeric Relaxed Primitives` | `Sources/Numeric Relaxed Primitives/` | `Numeric.Relaxed` fast/fused arithmetic (`sum`, `product`, `multiplyAdd`). Carved out so `Numeric Shims` does not leak through the Real interface. |
+| `Integer Primitives` | `Sources/Integer Primitives/` | Integer `division` (all rounding modes), `gcd` / `lcm`, rotation, shift, saturating arithmetic, and the optional-producing `+?` operators. |
 | `Numeric Test Support` | `Tests/Support/` | Re-exports the umbrella for test consumers. |
 
 An internal `Numeric Shims` C target wraps the platform `libm` symbols; it is not part of any public product's interface.

@@ -1,1 +1,1 @@
-@_exported import Numeric_Core
+@_exported import Numeric

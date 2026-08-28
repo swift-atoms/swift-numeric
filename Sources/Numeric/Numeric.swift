@@ -2,5 +2,5 @@ public enum Numeric {
 
     public typealias `Protocol` = Swift.Numeric
 
-    public typealias Transcendental = Numeric_Core.Transcendental
+    public typealias Transcendental = Numeric::Transcendental
 }

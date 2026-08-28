@@ -1,5 +1,5 @@
-#ifndef NUMERIC_PRIMITIVES_SHIMS_H
-#define NUMERIC_PRIMITIVES_SHIMS_H
+#ifndef NUMERIC_SHIMS_H
+#define NUMERIC_SHIMS_H
 
 #ifdef __cplusplus
 extern "C" {
