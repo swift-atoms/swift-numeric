@@ -18,6 +18,9 @@ let package = Package(
         .library(name: "Numeric Test Support", targets: ["Numeric Test Support"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/swift-atoms/swift-addition.git", branch: "main"),
+        .package(url: "https://github.com/swift-atoms/swift-subtraction.git", branch: "main"),
+        .package(url: "https://github.com/swift-atoms/swift-multiplication.git", branch: "main"),
         .package(url: "https://github.com/swift-institute/swift-numeric-shims.git", branch: "main"),
 
         .package(
@@ -33,6 +36,10 @@ let package = Package(
         .target(
             name: "Numeric",
             dependencies: [
+                .product(name: "Addition", package: "swift-addition"),
+                .product(name: "Subtraction", package: "swift-subtraction"),
+                .product(name: "Multiplication", package: "swift-multiplication"),
+
                 .product(name: "Tagged", package: "swift-tagged"),
                 .product(name: "Pair", package: "swift-pair"),
                 .product(name: "Numeric Shims", package: "swift-numeric-shims"),
