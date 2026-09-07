@@ -12,3 +12,5 @@ Rounding is now owned by swift-rounding. Floating-point `rounding(_:)` throws on
 Quantizer and Tolerance now provide independent validated grid and deviation contracts. Their consumer migrations and elementary functions are the next semantic boundaries to separate. The remaining libm shim dependency is not an accepted atom boundary.
 
 Bit rotation has moved to Bit Pattern's `rotatedLeft(by:)` and `rotatedRight(by:)` Swift adapters. Native floating-point closeness is expressed with Tolerance rather than Numeric.Comparison. Quantized is temporarily an alias of Quantizer.Quantized; its quantize operation now throws explicit failures.
+
+The unconstrained Fraction wrapper has been removed. Angle now accepts Rational coefficients, which validate the denominator and preserve the exact arbitrary-precision ratio until explicit approximation.
