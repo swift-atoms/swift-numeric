@@ -1,4 +1,4 @@
-extension Optional where Wrapped: FixedWidthInteger {
+extension Swift.Optional where Wrapped: FixedWidthInteger {
 
     @inlinable
     public static func +? (lhs: Self, rhs: Self) -> Self {
