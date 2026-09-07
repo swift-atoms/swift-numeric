@@ -14,4 +14,4 @@ extension Numeric {
     }
 }
 
-extension Numeric.Fraction: Sendable where Result: Sendable {}
+extension Numeric.Fraction: Swift.Sendable where Result: Swift.Sendable {}

@@ -1,0 +1,62 @@
+extension Swift.Double: Numeric.Transcendental {
+
+    @inlinable public static func _sin(_ x: Double) -> Double { Numeric.Math.sin(x) }
+
+    @inlinable public static func _cos(_ x: Double) -> Double { Numeric.Math.cos(x) }
+
+    @inlinable public static func _tan(_ x: Double) -> Double { Numeric.Math.tan(x) }
+
+    @inlinable public static func _asin(_ x: Double) -> Double { Numeric.Math.asin(x) }
+
+    @inlinable public static func _acos(_ x: Double) -> Double { Numeric.Math.acos(x) }
+
+    @inlinable public static func _atan(_ x: Double) -> Double { Numeric.Math.atan(x) }
+
+    @inlinable public static func _atan2(_ y: Double, _ x: Double) -> Double {
+        Numeric.Math.atan2(y, x)
+    }
+
+    @inlinable public static func _sinh(_ x: Double) -> Double { Numeric.Math.sinh(x) }
+
+    @inlinable public static func _cosh(_ x: Double) -> Double { Numeric.Math.cosh(x) }
+
+    @inlinable public static func _tanh(_ x: Double) -> Double { Numeric.Math.tanh(x) }
+
+    @inlinable public static func _asinh(_ x: Double) -> Double { Numeric.Math.asinh(x) }
+
+    @inlinable public static func _acosh(_ x: Double) -> Double { Numeric.Math.acosh(x) }
+
+    @inlinable public static func _atanh(_ x: Double) -> Double { Numeric.Math.atanh(x) }
+
+    @inlinable public static func _exp(_ x: Double) -> Double { Numeric.Math.exp(x) }
+
+    @inlinable public static func _expm1(_ x: Double) -> Double { Numeric.Math.expm1(x) }
+
+    @inlinable public static func _exp2(_ x: Double) -> Double { Numeric.Math.exp2(x) }
+
+    @inlinable public static func _log(_ x: Double) -> Double { Numeric.Math.log(x) }
+
+    @inlinable public static func _log1p(_ x: Double) -> Double { Numeric.Math.log1p(x) }
+
+    @inlinable public static func _log2(_ x: Double) -> Double { Numeric.Math.log2(x) }
+
+    @inlinable public static func _log10(_ x: Double) -> Double { Numeric.Math.log10(x) }
+
+    @inlinable public static func _pow(_ x: Double, _ y: Double) -> Double {
+        Numeric.Math.pow(x, y)
+    }
+
+    @inlinable public static func _sqrt(_ x: Double) -> Double { Numeric.Math.sqrt(x) }
+
+    @inlinable public static func _cbrt(_ x: Double) -> Double { Numeric.Math.cbrt(x) }
+
+    @inlinable public static func _hypot(_ x: Double, _ y: Double) -> Double {
+        Numeric.Math.hypot(x, y)
+    }
+}
+
+extension Swift.Double {
+
+    @inlinable
+    public static var math: Numeric.Math.Accessor<Double> { .init() }
+}

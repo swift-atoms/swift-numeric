@@ -1,5 +1,4 @@
-
-extension BinaryInteger {
+extension Swift.BinaryInteger {
 
     @inlinable
     public var shifted: Numeric.Integer.Shift<Self> {

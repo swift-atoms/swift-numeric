@@ -187,7 +187,7 @@ extension Numeric.Math {
 }
 
 #if os(iOS) || os(tvOS) || os(watchOS) || os(visionOS) || ((os(macOS) || targetEnvironment(macCatalyst)) && arch(arm64))
-    extension Numeric.Math {
+extension Numeric.Math {
         @usableFromInline
         internal static func exp(_ x: Float16) -> Float16 { Float16(shim_expf(Float(x))) }
 

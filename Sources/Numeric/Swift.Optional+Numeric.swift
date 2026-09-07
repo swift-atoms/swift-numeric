@@ -1,6 +1,34 @@
 extension Swift.Optional where Wrapped: FixedWidthInteger {
 
     @inlinable
+    public static func +?= (lhs: inout Self, rhs: Self) {
+        lhs = lhs +? rhs
+    }
+
+    @inlinable
+    public static func -?= (lhs: inout Self, rhs: Self) {
+        lhs = lhs -? rhs
+    }
+
+    @inlinable
+    public static func *?= (lhs: inout Self, rhs: Self) {
+        lhs = lhs *? rhs
+    }
+
+    @inlinable
+    public static func /?= (lhs: inout Self, rhs: Self) {
+        lhs = lhs /? rhs
+    }
+
+    @inlinable
+    public static func %?= (lhs: inout Self, rhs: Self) {
+        lhs = lhs %? rhs
+    }
+}
+
+extension Swift.Optional where Wrapped: FixedWidthInteger {
+
+    @inlinable
     public static func +? (lhs: Self, rhs: Self) -> Self {
         guard let a = lhs, let b = rhs else { return nil }
         let (result, overflow) = a.addingReportingOverflow(b)
@@ -36,12 +64,27 @@ extension Swift.Optional where Wrapped: FixedWidthInteger {
     }
 }
 
-extension Optional where Wrapped: FixedWidthInteger & SignedNumeric {
+extension Swift.Optional where Wrapped: FixedWidthInteger & SignedNumeric {
 
     @inlinable
     public static prefix func -? (value: Self) -> Self {
         guard let v = value else { return nil }
         let (result, overflow) = (0 as Wrapped).subtractingReportingOverflow(v)
         return overflow ? nil : result
+    }
+}
+
+extension Swift.Optional where Wrapped: Comparable {
+
+    @inlinable
+    public static func ..<? (lhs: Self, rhs: Self) -> Swift.Range<Wrapped>? {
+        guard let a = lhs, let b = rhs, a < b else { return nil }
+        return a..<b
+    }
+
+    @inlinable
+    public static func ...? (lhs: Self, rhs: Self) -> ClosedRange<Wrapped>? {
+        guard let a = lhs, let b = rhs, a <= b else { return nil }
+        return a...b
     }
 }

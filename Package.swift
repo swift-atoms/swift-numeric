@@ -13,12 +13,12 @@ let package = Package(
     ],
     products: [
         .library(name: "Numeric", targets: ["Numeric"]),
-        .library(name: "Numeric Standard Library Integration", targets: ["Numeric Standard Library Integration"]),
-        .library(name: "Numeric Foundation Library Integration", targets: ["Numeric Foundation Library Integration"]),
+
+        .library(name: "Numeric Foundation Integration", targets: ["Numeric Foundation Integration"]),
         .library(name: "Numeric Test Support", targets: ["Numeric Test Support"]),
     ],
     dependencies: [
-        .package(path: "../../swift-support/swift-numeric-shims"),
+        .package(url: "https://github.com/swift-institute/swift-numeric-shims.git", branch: "main"),
 
         .package(
             url: "https://github.com/swift-atoms/swift-tagged.git",
@@ -39,20 +39,13 @@ let package = Package(
             ],
             path: "Sources/Numeric"
         ),
+        
         .target(
-            name: "Numeric Standard Library Integration",
+            name: "Numeric Foundation Integration",
             dependencies: [
                 .target(name: "Numeric"),
             ],
-            path: "Sources/Numeric Standard Library Integration"
-        ),
-        .target(
-            name: "Numeric Foundation Library Integration",
-            dependencies: [
-                .target(name: "Numeric"),
-                .target(name: "Numeric Standard Library Integration"),
-            ],
-            path: "Sources/Numeric Foundation Library Integration"
+            path: "Sources/Numeric Foundation Integration"
         ),
         .target(
             name: "Numeric Test Support",
@@ -67,8 +60,7 @@ let package = Package(
             dependencies: [
                 .target(name: "Numeric"),
                 .target(name: "Numeric Test Support"),
-                .target(name: "Numeric Standard Library Integration"),
-                .target(name: "Numeric Foundation Library Integration"),
+                .target(name: "Numeric Foundation Integration"),
             ],
             path: "Tests/Numeric Tests"
         ),

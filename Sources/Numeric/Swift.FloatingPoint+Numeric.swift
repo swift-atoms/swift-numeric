@@ -1,4 +1,12 @@
-extension FloatingPoint {
+extension Swift.FloatingPoint where Self: Sendable {
+
+    @inlinable
+    public var equals: Numeric.Comparison.Equals<Self> {
+        Numeric.Comparison.Equals(self)
+    }
+}
+
+extension Swift.FloatingPoint {
 
     @inlinable @inline(always)
     public func rounding(_ rule: Numeric.Rounding) -> Self {

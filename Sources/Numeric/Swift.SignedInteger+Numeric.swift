@@ -1,4 +1,4 @@
-extension SignedInteger where Self: Sendable {
+extension Swift.SignedInteger where Self: Sendable {
 
     @inlinable
     public var division: Numeric.Integer.Division<Self> {

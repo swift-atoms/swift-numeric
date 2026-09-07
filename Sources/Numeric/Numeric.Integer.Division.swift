@@ -11,7 +11,7 @@ extension Numeric.Integer {
     }
 }
 
-extension Numeric.Integer.Division: Sendable where T: Sendable {}
+extension Numeric.Integer.Division: Swift.Sendable where T: Swift.Sendable {}
 
 extension Numeric.Integer.Division {
 

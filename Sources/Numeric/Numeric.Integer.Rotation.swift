@@ -11,7 +11,7 @@ extension Numeric.Integer {
     }
 }
 
-extension Numeric.Integer.Rotation: Sendable where T: Sendable {}
+extension Numeric.Integer.Rotation: Swift.Sendable where T: Swift.Sendable {}
 
 extension Numeric.Integer.Rotation {
 

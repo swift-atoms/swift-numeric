@@ -1,4 +1,3 @@
-
 extension Numeric.Integer {
 
     public struct Shift<T: BinaryInteger> {
@@ -12,7 +11,7 @@ extension Numeric.Integer {
     }
 }
 
-extension Numeric.Integer.Shift: Sendable where T: Sendable {
+extension Numeric.Integer.Shift: Swift.Sendable where T: Swift.Sendable {
 }
 
 extension Numeric.Integer.Shift {

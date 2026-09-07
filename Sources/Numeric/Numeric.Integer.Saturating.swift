@@ -11,7 +11,7 @@ extension Numeric.Integer {
     }
 }
 
-extension Numeric.Integer.Saturating: Sendable where T: Sendable {}
+extension Numeric.Integer.Saturating: Swift.Sendable where T: Swift.Sendable {}
 
 extension Numeric.Integer.Saturating {
 

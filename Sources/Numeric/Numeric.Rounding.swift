@@ -55,7 +55,15 @@ extension Numeric.Rounding {
 }
 
 #if !hasFeature(Embedded)
-    extension Numeric.Rounding: Codable {}
-    extension Numeric.Rounding.Direction: Codable {}
-    extension Numeric.Rounding.Nearest: Codable {}
+extension Numeric.Rounding: Swift.Codable {}
+#endif
+
+
+#if !hasFeature(Embedded)
+extension Numeric.Rounding.Direction: Swift.Codable {}
+#endif
+
+
+#if !hasFeature(Embedded)
+extension Numeric.Rounding.Nearest: Swift.Codable {}
 #endif

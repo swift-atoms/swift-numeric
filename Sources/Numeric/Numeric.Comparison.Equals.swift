@@ -11,7 +11,7 @@ extension Numeric.Comparison {
     }
 }
 
-extension Numeric.Comparison.Equals: Sendable where T: Sendable {}
+extension Numeric.Comparison.Equals: Swift.Sendable where T: Swift.Sendable {}
 
 extension Numeric.Comparison.Equals where T: FloatingPoint {
 
@@ -33,21 +33,5 @@ extension Numeric.Comparison.Equals where T: SignedNumeric, T.Magnitude: Compara
     @inlinable
     public func approximate(_ other: T, tolerance: T.Magnitude) -> Bool {
         (value - other).magnitude <= tolerance
-    }
-}
-
-extension FloatingPoint where Self: Sendable {
-
-    @inlinable
-    public var equals: Numeric.Comparison.Equals<Self> {
-        Numeric.Comparison.Equals(self)
-    }
-}
-
-extension SignedNumeric where Self: Sendable {
-
-    @inlinable
-    public var equals: Numeric.Comparison.Equals<Self> {
-        Numeric.Comparison.Equals(self)
     }
 }

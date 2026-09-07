@@ -1,10 +1,3 @@
-
-extension Double {
-
-    @inlinable
-    public static var math: Numeric.Math.Accessor<Double> { .init() }
-}
-
 extension Numeric.Math.Accessor where T == Double {
 
     @inlinable
@@ -91,12 +84,6 @@ extension Numeric.Math.Accessor where T == Double {
     @inlinable
     public func tgamma(_ x: Double) -> Double { Numeric.Math.tgamma(x) }
 
-}
-
-extension Float {
-
-    @inlinable
-    public static var math: Numeric.Math.Accessor<Float> { .init() }
 }
 
 extension Numeric.Math.Accessor where T == Float {
@@ -188,13 +175,7 @@ extension Numeric.Math.Accessor where T == Float {
 }
 
 #if os(iOS) || os(tvOS) || os(watchOS) || os(visionOS) || ((os(macOS) || targetEnvironment(macCatalyst)) && arch(arm64))
-    extension Float16 {
-
-        @inlinable
-        public static var math: Numeric.Math.Accessor<Float16> { .init() }
-    }
-
-    extension Numeric.Math.Accessor where T == Float16 {
+extension Numeric.Math.Accessor where T == Float16 {
 
         @inlinable
         public func exp(_ x: Float16) -> Float16 { Numeric.Math.exp(x) }
