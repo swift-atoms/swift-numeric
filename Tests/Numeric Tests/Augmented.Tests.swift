@@ -1,15 +1,15 @@
 import Numeric
 import Testing
 
-@Suite("Numeric.Augmented")
-struct NumericAugmentedTests {
-    @Suite struct Unit {}
-    @Suite struct EdgeCase {}
-    @Suite struct Integration {}
-    @Suite(.serialized) struct Performance {}
+@Suite
+struct `Augmented arithmetic forwards to the owning operations` {
+    @Suite struct `Unit tests` {}
+    @Suite struct `Edge cases` {}
+    @Suite struct `Integration tests` {}
+    @Suite(.serialized) struct `Performance tests` {}
 }
 
-extension NumericAugmentedTests.Unit {
+extension `Augmented arithmetic forwards to the owning operations`.`Unit tests` {
     @Test
     func `exact product has zero tail`() {
         let (head, tail) = Numeric.Augmented.product(2.0, 3.0)
@@ -99,7 +99,7 @@ extension NumericAugmentedTests.Unit {
     }
 }
 
-extension NumericAugmentedTests.EdgeCase {
+extension `Augmented arithmetic forwards to the owning operations`.`Edge cases` {
     @Test
     func `infinity handling in sum`() {
         let (head, _) = Numeric.Augmented.sum(0.0, Double.infinity)
@@ -146,7 +146,7 @@ extension NumericAugmentedTests.EdgeCase {
     }
 }
 
-extension NumericAugmentedTests.Integration {
+extension `Augmented arithmetic forwards to the owning operations`.`Integration tests` {
     @Test
     func `compensated sum captures lost precision`() {
         let big = 1e16

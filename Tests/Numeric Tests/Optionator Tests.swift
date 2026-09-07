@@ -4,13 +4,13 @@ import Testing
 
 @Suite
 struct `Optionator Tests` {
-    @Suite struct Unit {}
+    @Suite struct `Unit tests` {}
     @Suite struct `Edge Case` {}
-    @Suite struct Integration {}
-    @Suite(.serialized) struct Performance {}
+    @Suite struct `Integration tests` {}
+    @Suite(.serialized) struct `Performance tests` {}
 }
 
-extension `Optionator Tests`.Unit {
+extension `Optionator Tests`.`Unit tests` {
 
     @Test
     func `addition succeeds without overflow`() {
@@ -358,7 +358,7 @@ extension `Optionator Tests`.`Edge Case` {
     }
 }
 
-extension `Optionator Tests`.Integration {
+extension `Optionator Tests`.`Integration tests` {
 
     @Test
     func `image buffer size calculation`() {

@@ -18,6 +18,7 @@ let package = Package(
         .library(name: "Numeric Test Support", targets: ["Numeric Test Support"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/swift-atoms/swift-quantizer.git", branch: "main"),
         .package(url: "https://github.com/swift-atoms/swift-rounding.git", branch: "main"),
         .package(url: "https://github.com/swift-atoms/swift-addition.git", branch: "main"),
         .package(url: "https://github.com/swift-atoms/swift-subtraction.git", branch: "main"),
@@ -37,6 +38,7 @@ let package = Package(
         .target(
             name: "Numeric",
             dependencies: [
+                .product(name: "Quantizer", package: "swift-quantizer"),
                 .product(name: "Rounding", package: "swift-rounding"),
                 .product(name: "Addition", package: "swift-addition"),
                 .product(name: "Subtraction", package: "swift-subtraction"),

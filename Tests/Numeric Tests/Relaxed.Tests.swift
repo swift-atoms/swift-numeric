@@ -2,15 +2,15 @@ import Numeric_Test_Support
 import Numeric
 import Testing
 
-@Suite("Numeric.Relaxed")
-struct NumericRelaxedTests {
-    @Suite struct Unit {}
-    @Suite struct EdgeCase {}
-    @Suite struct Integration {}
-    @Suite(.serialized) struct Performance {}
+@Suite
+struct `Relaxed arithmetic uses Swift operations` {
+    @Suite struct `Unit tests` {}
+    @Suite struct `Edge cases` {}
+    @Suite struct `Integration tests` {}
+    @Suite(.serialized) struct `Performance tests` {}
 }
 
-extension NumericRelaxedTests.Unit {
+extension `Relaxed arithmetic uses Swift operations`.`Unit tests` {
     @Test
     func `sum equals standard addition`() {
         let a = 1.5
@@ -66,7 +66,7 @@ extension NumericRelaxedTests.Unit {
     }
 
     @Test
-    func `multiplyAdd basic operation`() {
+    func `Multiply then add evaluates the product before the sum`() {
         let a = 2.0
         let b = 3.0
         let c = 1.0
@@ -79,7 +79,7 @@ extension NumericRelaxedTests.Unit {
     }
 
     @Test
-    func `multiplyAdd with Float`() {
+    func `Multiply then add supports single precision values`() {
         let a: Float = 2.0
         let b: Float = 3.0
         let c: Float = 1.0
@@ -92,7 +92,7 @@ extension NumericRelaxedTests.Unit {
     }
 }
 
-extension NumericRelaxedTests.EdgeCase {
+extension `Relaxed arithmetic uses Swift operations`.`Edge cases` {
     @Test
     func `infinity handling`() {
         #expect(Numeric::Numeric.Relaxed.sum(Double.infinity, 1.0) == Double.infinity)
@@ -114,7 +114,7 @@ extension NumericRelaxedTests.EdgeCase {
     }
 }
 
-extension NumericRelaxedTests.Integration {
+extension `Relaxed arithmetic uses Swift operations`.`Integration tests` {
     @Test
     func `sum of squares pattern`() {
         let values: [Double] = [1.0, 2.0, 3.0, 4.0, 5.0]

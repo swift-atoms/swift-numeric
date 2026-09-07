@@ -5,3 +5,4 @@
 @_exported public import Subtraction
 @_exported public import Multiplication
 @_exported public import Rounding
+@_exported public import Quantizer
