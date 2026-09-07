@@ -1,16 +1,21 @@
-# Numeric
+# Numeric compatibility composition
 
-Numeric is being decomposed into concept-owned atoms. It is not the owner of every operation on numbers. During migration, compatibility accessors delegate to their established owners.
+Numeric is a higher-level compatibility composition, not an atom. It combines several independently meaningful numerical concepts and the platform implementation of elementary functions. Its checkout now belongs in swift-molecules, and no atom manifest or atoms workspace reference depends on it. The repository retains its existing GitHub URL during migration.
 
-- Addition, Subtraction, and Multiplication own saturating fixed-width arithmetic.
-- Addition and Multiplication own augmented operations and their residual-error contracts.
-- Integer owns exact GCD and LCM; migrate `Numeric.Integer.gcd/lcm` to `Integer.gcd/lcm`. Results are arbitrary-precision Integers, with explicit fixed-width conversion.
-- Relaxed arithmetic uses ordinary Swift evaluation. Multiply-add evaluates a product then a sum; callers must not depend on contraction or reassociation.
+The atom owners are:
 
-Rounding is now owned by swift-rounding. Floating-point `rounding(_:)` throws on nonfinite or inexact inputs. Swift integer `shifted.right` is imported from Integer and throws on inexact shifts. Rounded fixed-width division is `Division.rounded(_:by:rounding:)`, with explicit errors and a returned quotient/remainder pair. The previous Numeric division accessor has been removed.
+- Rounding for rounding decisions and explicit exactness failures.
+- Quantizer for validated uniform grids and explicit tick storage.
+- Tolerance for validated absolute and relative allowances.
+- Integer for exact arbitrary-precision arithmetic, GCD/LCM, and rounded Swift integer shifts.
+- Division for checked rounded quotient/remainder operations.
+- Addition, Subtraction, and Multiplication for checked/saturating arithmetic; Addition and Multiplication also own augmented residual operations.
+- Bit Pattern for finite bit rotation, including signed Swift storage adapters.
+- Rational for exact coefficients and explicit floating-point approximation. The unconstrained Fraction wrapper has been removed.
+- Trigonometry and Exponential for independent scalar capability contracts. Angle and Complex depend on those contracts directly.
 
-Quantizer and Tolerance now provide independent validated grid and deviation contracts. Their consumer migrations and elementary functions are the next semantic boundaries to separate. The remaining libm shim dependency is not an accepted atom boundary.
+Numeric retains legacy convenience accessors, optional arithmetic operators, sign/ternary wrappers, and the existing libm implementation while higher consumers are migrated in their own phase. These aggregates are not being presented as independent atoms. Complex relaxed arithmetic belongs in the existing swift-complex-numeric-relaxed integration package.
 
-Bit rotation has moved to Bit Pattern's `rotatedLeft(by:)` and `rotatedRight(by:)` Swift adapters. Native floating-point closeness is expressed with Tolerance rather than Numeric.Comparison. Quantized is temporarily an alias of Quantizer.Quantized; its quantize operation now throws explicit failures.
+The platform backend still uses the published Numeric Shims package. Its numerical behavior, including Float16 evaluation through Float, is preserved. This backend is outside the atom dependency graph; no atom forwards through this package to obtain its implementation. Backend accuracy and supported rounding behavior follow the platform libm, without a universal correctly-rounded guarantee. A consumer importing Numeric supplies concrete scalar conformances to the atom contracts.
 
-The unconstrained Fraction wrapper has been removed. Angle now accepts Rational coefficients, which validate the denominator and preserve the exact arbitrary-precision ratio until explicit approximation.
+Migration is intentionally explicit: `Numeric.Integer.gcd/lcm` moved to Integer with arbitrary-precision results; rounded division is `Division.rounded(_:by:rounding:)`; integer right shifts come from Integer; rotation comes from Bit Pattern; native closeness uses Tolerance; and Angle fraction factories take Rational coefficients. Rounding and quantization now report invalid or inexact operations through their owning error types.

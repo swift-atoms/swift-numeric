@@ -6,3 +6,5 @@
 @_exported public import Multiplication
 @_exported public import Rounding
 @_exported public import Quantizer
+@_exported public import Trigonometry
+@_exported public import Exponential

@@ -1,4 +1,7 @@
-public protocol Transcendental {
+public import Trigonometry
+public import Exponential
+
+public protocol Transcendental: Trigonometry.`Protocol`, Exponential.`Protocol` {
 
     static func _sin(_ x: Self) -> Self
 

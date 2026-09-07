@@ -18,6 +18,8 @@ let package = Package(
         .library(name: "Numeric Test Support", targets: ["Numeric Test Support"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/swift-atoms/swift-exponential.git", branch: "main"),
+        .package(url: "https://github.com/swift-atoms/swift-trigonometry.git", branch: "main"),
         .package(url: "https://github.com/swift-atoms/swift-quantizer.git", branch: "main"),
         .package(url: "https://github.com/swift-atoms/swift-rounding.git", branch: "main"),
         .package(url: "https://github.com/swift-atoms/swift-addition.git", branch: "main"),
@@ -38,6 +40,8 @@ let package = Package(
         .target(
             name: "Numeric",
             dependencies: [
+                .product(name: "Exponential", package: "swift-exponential"),
+                .product(name: "Trigonometry", package: "swift-trigonometry"),
                 .product(name: "Quantizer", package: "swift-quantizer"),
                 .product(name: "Rounding", package: "swift-rounding"),
                 .product(name: "Addition", package: "swift-addition"),

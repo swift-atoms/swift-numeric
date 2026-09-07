@@ -1,4 +1,25 @@
 extension Swift.Double: Numeric.Transcendental {
+    @inlinable public static func sin(_ x: Double) -> Double { Numeric.Math.sin(x) }
+    @inlinable public static func cos(_ x: Double) -> Double { Numeric.Math.cos(x) }
+    @inlinable public static func tan(_ x: Double) -> Double { Numeric.Math.tan(x) }
+    @inlinable public static func asin(_ x: Double) -> Double { Numeric.Math.asin(x) }
+    @inlinable public static func acos(_ x: Double) -> Double { Numeric.Math.acos(x) }
+    @inlinable public static func atan(_ x: Double) -> Double { Numeric.Math.atan(x) }
+    @inlinable public static func atan2(_ y: Double, _ x: Double) -> Double { Numeric.Math.atan2(y, x) }
+    @inlinable public static func sinh(_ x: Double) -> Double { Numeric.Math.sinh(x) }
+    @inlinable public static func cosh(_ x: Double) -> Double { Numeric.Math.cosh(x) }
+    @inlinable public static func tanh(_ x: Double) -> Double { Numeric.Math.tanh(x) }
+    @inlinable public static func asinh(_ x: Double) -> Double { Numeric.Math.asinh(x) }
+    @inlinable public static func acosh(_ x: Double) -> Double { Numeric.Math.acosh(x) }
+    @inlinable public static func atanh(_ x: Double) -> Double { Numeric.Math.atanh(x) }
+    @inlinable public static func exp(_ x: Double) -> Double { Numeric.Math.exp(x) }
+    @inlinable public static func expm1(_ x: Double) -> Double { Numeric.Math.expm1(x) }
+    @inlinable public static func exp2(_ x: Double) -> Double { Numeric.Math.exp2(x) }
+    @inlinable public static func log(_ x: Double) -> Double { Numeric.Math.log(x) }
+    @inlinable public static func log1p(_ x: Double) -> Double { Numeric.Math.log1p(x) }
+    @inlinable public static func log2(_ x: Double) -> Double { Numeric.Math.log2(x) }
+    @inlinable public static func log10(_ x: Double) -> Double { Numeric.Math.log10(x) }
+
 
     @inlinable public static func _sin(_ x: Double) -> Double { Numeric.Math.sin(x) }
 
