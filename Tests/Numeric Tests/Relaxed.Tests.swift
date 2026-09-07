@@ -1,5 +1,5 @@
 import Numeric_Test_Support
-import Numeric_Relaxed
+import Numeric
 import Testing
 
 @Suite("Numeric.Relaxed")

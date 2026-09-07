@@ -1,4 +1,3 @@
-public import Numeric
 
 extension Double {
 

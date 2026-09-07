@@ -1,4 +1,4 @@
-import Integer
+import Numeric
 import Testing
 
 @Suite("Numeric.Integer.Shift")

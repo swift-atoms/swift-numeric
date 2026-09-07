@@ -1,4 +1,3 @@
-import Numeric
 
 extension BinaryInteger {
 

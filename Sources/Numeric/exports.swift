@@ -1,3 +1,3 @@
+@_exported public import Numeric_Shims
 @_exported public import Pair
-
-@_exported import struct Tagged.Tagged
+@_exported public import Tagged

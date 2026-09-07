@@ -1,4 +1,4 @@
-import Real
+import Numeric
 import Testing
 
 @Suite("Numeric.Augmented")

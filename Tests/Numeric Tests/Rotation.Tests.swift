@@ -1,6 +1,6 @@
 import Testing
 
-@testable import Integer
+@testable import Numeric
 
 @Suite("Numeric.Integer.Rotation")
 struct NumericIntegerRotationTests {

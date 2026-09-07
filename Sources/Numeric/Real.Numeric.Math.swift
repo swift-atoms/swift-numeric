@@ -1,4 +1,3 @@
-public import Numeric
 import Numeric_Shims
 
 extension Numeric.Math {

@@ -1,4 +1,3 @@
-public import Numeric
 public import Numeric_Shims
 
 extension Numeric {
