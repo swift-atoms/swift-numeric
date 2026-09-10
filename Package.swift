@@ -13,7 +13,6 @@ let package = Package(
     ],
     products: [
         .library(name: "Numeric", targets: ["Numeric"]),
-
         .library(name: "Numeric Foundation Integration", targets: ["Numeric Foundation Integration"]),
         .library(name: "Numeric Test Support", targets: ["Numeric Test Support"]),
     ],
