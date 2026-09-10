@@ -2,7 +2,7 @@ public import Addition
 public import Multiplication
 
 extension Numeric {
-    /// Compatibility vocabulary. New code uses Addition and Multiplication directly.
+
     public enum Augmented {}
 }
 

@@ -1,7 +1,5 @@
 extension Numeric {
 
-    /// Legacy arithmetic permitting ordinary Swift evaluation without a fusion guarantee.
-    /// This implementation evaluates multiply-add as a rounded product followed by a sum.
     public enum Relaxed {}
 }
 
