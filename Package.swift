@@ -16,7 +16,16 @@ let package = Package(
         .library(name: "Numeric Foundation Integration", targets: ["Numeric Foundation Integration"]),
         .library(name: "Numeric Test Support", targets: ["Numeric Test Support"]),
     ],
+    traits: [
+        .trait(name: "Finite", description: "Numeric Finite integration"),
+        .trait(name: "Complex", description: "Complex Numeric Relaxed integration"),
+    ],
     dependencies: [
+        .package(url: "https://github.com/swift-atoms/swift-ordinal.git", branch: "main"),
+        .package(url: "https://github.com/swift-atoms/swift-index.git", branch: "main"),
+        .package(url: "https://github.com/swift-atoms/swift-finite.git", branch: "main"),
+        .package(url: "https://github.com/swift-atoms/swift-cardinal.git", branch: "main"),
+        .package(url: "https://github.com/swift-atoms/swift-complex.git", branch: "main"),
         .package(url: "https://github.com/swift-atoms/swift-exponential.git", branch: "main"),
         .package(url: "https://github.com/swift-atoms/swift-trigonometry.git", branch: "main"),
         .package(url: "https://github.com/swift-atoms/swift-quantizer.git", branch: "main"),
@@ -36,9 +45,36 @@ let package = Package(
         ),
     ],
     targets: [
+        .testTarget(
+            name: "Numeric Finite Integration Tests",
+            dependencies: [
+                .target(name: "Numeric"),
+                .target(name: "Numeric Test Support"),
+                .product(name: "Cardinal", package: "swift-cardinal", condition: .when(traits: ["Finite"])),
+                .product(name: "Finite", package: "swift-finite", condition: .when(traits: ["Finite"])),
+                .product(name: "Index", package: "swift-index", condition: .when(traits: ["Finite"])),
+                .product(name: "Ordinal", package: "swift-ordinal", condition: .when(traits: ["Finite"])),
+                .product(name: "Tagged", package: "swift-tagged", condition: .when(traits: ["Finite"])),
+            ],
+            path: "Tests/Numeric Finite Integration Tests"
+        ),
+        .testTarget(
+            name: "Numeric Complex Integration Tests",
+            dependencies: [
+                .target(name: "Numeric"),
+                .target(name: "Numeric Test Support"),
+                .product(name: "Complex", package: "swift-complex", condition: .when(traits: ["Complex"])),
+            ],
+            path: "Tests/Numeric Complex Integration Tests"
+        ),
         .target(
             name: "Numeric",
             dependencies: [
+                .product(name: "Cardinal", package: "swift-cardinal", condition: .when(traits: ["Finite"])),
+                .product(name: "Finite", package: "swift-finite", condition: .when(traits: ["Finite"])),
+                .product(name: "Index", package: "swift-index", condition: .when(traits: ["Finite"])),
+                .product(name: "Ordinal", package: "swift-ordinal", condition: .when(traits: ["Finite"])),
+                .product(name: "Complex", package: "swift-complex", condition: .when(traits: ["Complex"])),
                 .product(name: "Exponential", package: "swift-exponential"),
                 .product(name: "Trigonometry", package: "swift-trigonometry"),
                 .product(name: "Quantizer", package: "swift-quantizer"),
@@ -53,7 +89,7 @@ let package = Package(
             ],
             path: "Sources/Numeric"
         ),
-        
+
         .target(
             name: "Numeric Foundation Integration",
             dependencies: [
