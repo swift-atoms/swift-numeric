@@ -1,4 +1,4 @@
-extension Swift.FixedWidthInteger where Self: Sendable {
+extension Swift::FixedWidthInteger where Self: Sendable {
 
     @inlinable
     public var saturating: Numeric.Integer.Saturating<Self> {

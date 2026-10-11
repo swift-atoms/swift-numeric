@@ -1,4 +1,4 @@
-extension Swift.Optional where Wrapped: FixedWidthInteger {
+extension Swift::Optional where Wrapped: FixedWidthInteger {
 
     @inlinable
     public static func +?= (lhs: inout Self, rhs: Self) {
@@ -26,7 +26,7 @@ extension Swift.Optional where Wrapped: FixedWidthInteger {
     }
 }
 
-extension Swift.Optional where Wrapped: FixedWidthInteger {
+extension Swift::Optional where Wrapped: FixedWidthInteger {
 
     @inlinable
     public static func +? (lhs: Self, rhs: Self) -> Self {
@@ -64,7 +64,7 @@ extension Swift.Optional where Wrapped: FixedWidthInteger {
     }
 }
 
-extension Swift.Optional where Wrapped: FixedWidthInteger & SignedNumeric {
+extension Swift::Optional where Wrapped: FixedWidthInteger & SignedNumeric {
 
     @inlinable
     public static prefix func -? (value: Self) -> Self {
@@ -74,10 +74,10 @@ extension Swift.Optional where Wrapped: FixedWidthInteger & SignedNumeric {
     }
 }
 
-extension Swift.Optional where Wrapped: Comparable {
+extension Swift::Optional where Wrapped: Comparable {
 
     @inlinable
-    public static func ..<? (lhs: Self, rhs: Self) -> Swift.Range<Wrapped>? {
+    public static func ..<? (lhs: Self, rhs: Self) -> Swift::Range<Wrapped>? {
         guard let a = lhs, let b = rhs, a < b else { return nil }
         return a..<b
     }

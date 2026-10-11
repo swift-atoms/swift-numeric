@@ -71,5 +71,5 @@ extension Numeric.Ternary {
 }
 
 #if !hasFeature(Embedded)
-extension Numeric.Ternary: Swift.Codable {}
+extension Numeric.Ternary: Swift::Codable {}
 #endif

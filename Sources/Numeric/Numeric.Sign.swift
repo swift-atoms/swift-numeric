@@ -71,5 +71,5 @@ extension Numeric.Sign {
 }
 
 #if !hasFeature(Embedded)
-extension Numeric.Sign: Swift.Codable {}
+extension Numeric.Sign: Swift::Codable {}
 #endif

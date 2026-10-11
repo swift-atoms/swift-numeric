@@ -110,7 +110,6 @@ let package = Package(
             dependencies: [
                 .target(name: "Numeric"),
                 .target(name: "Numeric Test Support"),
-                .target(name: "Numeric Foundation Integration"),
             ],
             path: "Tests/Numeric Tests"
         ),

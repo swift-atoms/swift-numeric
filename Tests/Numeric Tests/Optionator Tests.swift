@@ -374,7 +374,7 @@ extension `Optionator Tests`.`Integration tests` {
 
     @Test
     func `offset calculation with bounds check`() {
-        func safeOffset(base: Int?, offset: Int?) -> Swift.Range<Int>? {
+        func safeOffset(base: Int?, offset: Int?) -> Swift::Range<Int>? {
             guard let start = base, let length = offset else { return nil }
             let end = start +? length
             return start ..<? end

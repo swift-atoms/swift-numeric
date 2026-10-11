@@ -1,4 +1,4 @@
-extension Swift.Float: Numeric.Transcendental {
+extension Swift::Float: Numeric.Transcendental {
     @inlinable public static func sin(_ x: Float) -> Float { Numeric.Math.sin(x) }
     @inlinable public static func cos(_ x: Float) -> Float { Numeric.Math.cos(x) }
     @inlinable public static func tan(_ x: Float) -> Float { Numeric.Math.tan(x) }
@@ -74,7 +74,7 @@ extension Swift.Float: Numeric.Transcendental {
     }
 }
 
-extension Swift.Float {
+extension Swift::Float {
 
     @inlinable
     public static var math: Numeric.Math.Accessor<Float> { .init() }

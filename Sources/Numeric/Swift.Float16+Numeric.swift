@@ -1,5 +1,5 @@
 #if os(iOS) || os(tvOS) || os(watchOS) || os(visionOS) || ((os(macOS) || targetEnvironment(macCatalyst)) && arch(arm64))
-extension Swift.Float16: Numeric.Transcendental {
+extension Swift::Float16: Numeric.Transcendental {
     @inlinable public static func sin(_ x: Float16) -> Float16 { Numeric.Math.sin(x) }
     @inlinable public static func cos(_ x: Float16) -> Float16 { Numeric.Math.cos(x) }
     @inlinable public static func tan(_ x: Float16) -> Float16 { Numeric.Math.tan(x) }
@@ -80,7 +80,7 @@ extension Swift.Float16: Numeric.Transcendental {
 
 
 #if os(iOS) || os(tvOS) || os(watchOS) || os(visionOS) || ((os(macOS) || targetEnvironment(macCatalyst)) && arch(arm64))
-extension Swift.Float16 {
+extension Swift::Float16 {
 
         @inlinable
         public static var math: Numeric.Math.Accessor<Float16> { .init() }

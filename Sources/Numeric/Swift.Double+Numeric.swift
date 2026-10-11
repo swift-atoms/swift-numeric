@@ -1,4 +1,4 @@
-extension Swift.Double: Numeric.Transcendental {
+extension Swift::Double: Numeric.Transcendental {
     @inlinable public static func sin(_ x: Double) -> Double { Numeric.Math.sin(x) }
     @inlinable public static func cos(_ x: Double) -> Double { Numeric.Math.cos(x) }
     @inlinable public static func tan(_ x: Double) -> Double { Numeric.Math.tan(x) }
@@ -76,7 +76,7 @@ extension Swift.Double: Numeric.Transcendental {
     }
 }
 
-extension Swift.Double {
+extension Swift::Double {
 
     @inlinable
     public static var math: Numeric.Math.Accessor<Double> { .init() }
