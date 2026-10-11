@@ -1,4 +1,13 @@
-extension Swift::Float: Numeric.Transcendental {
+public import Exponential
+public import Trigonometry
+
+extension Swift::Float:
+    Numeric.Transcendental,
+    @retroactive Trigonometry.`Protocol`,
+    @retroactive Trigonometry.Circular,
+    @retroactive Trigonometry.Hyperbolic,
+    @retroactive Exponential.`Protocol`
+{
     @inlinable public static func sin(_ x: Float) -> Float { Numeric.Math.sin(x) }
     @inlinable public static func cos(_ x: Float) -> Float { Numeric.Math.cos(x) }
     @inlinable public static func tan(_ x: Float) -> Float { Numeric.Math.tan(x) }

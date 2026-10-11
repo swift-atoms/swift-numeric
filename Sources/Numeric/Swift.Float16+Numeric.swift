@@ -1,5 +1,14 @@
 #if os(iOS) || os(tvOS) || os(watchOS) || os(visionOS) || ((os(macOS) || targetEnvironment(macCatalyst)) && arch(arm64))
-extension Swift::Float16: Numeric.Transcendental {
+public import Exponential
+public import Trigonometry
+
+extension Swift::Float16:
+    Numeric.Transcendental,
+    @retroactive Trigonometry.`Protocol`,
+    @retroactive Trigonometry.Circular,
+    @retroactive Trigonometry.Hyperbolic,
+    @retroactive Exponential.`Protocol`
+{
     @inlinable public static func sin(_ x: Float16) -> Float16 { Numeric.Math.sin(x) }
     @inlinable public static func cos(_ x: Float16) -> Float16 { Numeric.Math.cos(x) }
     @inlinable public static func tan(_ x: Float16) -> Float16 { Numeric.Math.tan(x) }

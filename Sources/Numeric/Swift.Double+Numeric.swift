@@ -1,4 +1,13 @@
-extension Swift::Double: Numeric.Transcendental {
+public import Exponential
+public import Trigonometry
+
+extension Swift::Double:
+    Numeric.Transcendental,
+    @retroactive Trigonometry.`Protocol`,
+    @retroactive Trigonometry.Circular,
+    @retroactive Trigonometry.Hyperbolic,
+    @retroactive Exponential.`Protocol`
+{
     @inlinable public static func sin(_ x: Double) -> Double { Numeric.Math.sin(x) }
     @inlinable public static func cos(_ x: Double) -> Double { Numeric.Math.cos(x) }
     @inlinable public static func tan(_ x: Double) -> Double { Numeric.Math.tan(x) }
