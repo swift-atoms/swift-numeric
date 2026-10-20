@@ -1,5 +1,5 @@
-import Testing
 import Numeric
+import Testing
 
 @Suite
 struct `Saturating arithmetic clamps at storage boundaries` {

@@ -29,7 +29,6 @@ extension Swift::Double:
     @inlinable public static func log2(_ x: Double) -> Double { Numeric.Math.log2(x) }
     @inlinable public static func log10(_ x: Double) -> Double { Numeric.Math.log10(x) }
 
-
     @inlinable public static func _sin(_ x: Double) -> Double { Numeric.Math.sin(x) }
 
     @inlinable public static func _cos(_ x: Double) -> Double { Numeric.Math.cos(x) }

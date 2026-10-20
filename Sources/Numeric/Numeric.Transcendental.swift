@@ -1,5 +1,5 @@
-public import Trigonometry
 public import Exponential
+public import Trigonometry
 
 public protocol Transcendental: Trigonometry.`Protocol`, Exponential.`Protocol` {
 

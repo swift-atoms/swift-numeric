@@ -1,5 +1,5 @@
-import Numeric_Test_Support
 import Numeric
+import Numeric_Test_Support
 import Testing
 
 @Suite

@@ -1,6 +1,6 @@
 public import Addition
-public import Subtraction
 public import Multiplication
+public import Subtraction
 
 extension Numeric.Integer {
 

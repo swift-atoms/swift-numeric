@@ -29,7 +29,6 @@ extension Swift::Float:
     @inlinable public static func log2(_ x: Float) -> Float { Numeric.Math.log2(x) }
     @inlinable public static func log10(_ x: Float) -> Float { Numeric.Math.log10(x) }
 
-
     @inlinable public static func _sin(_ x: Float) -> Float { Numeric.Math.sin(x) }
 
     @inlinable public static func _cos(_ x: Float) -> Float { Numeric.Math.cos(x) }

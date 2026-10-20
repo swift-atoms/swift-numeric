@@ -8,9 +8,9 @@ import Testing
     }
 
     #if os(iOS) || os(tvOS) || os(watchOS) || os(visionOS) || ((os(macOS) || targetEnvironment(macCatalyst)) && arch(arm64))
-    @Test func `Half precision witnesses preserve domains and cancellation`() {
-        check(Float16.self)
-    }
+        @Test func `Half precision witnesses preserve domains and cancellation`() {
+            check(Float16.self)
+        }
     #endif
 
     private func check<Scalar: BinaryFloatingPoint & Trigonometry.`Protocol` & Exponential.`Protocol`>(

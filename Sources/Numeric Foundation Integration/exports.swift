@@ -1,2 +1,2 @@
-@_exported public import Numeric
 import Foundation
+@_exported public import Numeric
