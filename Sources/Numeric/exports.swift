@@ -1,7 +1,6 @@
 @_exported public import Addition
 @_exported public import Exponential
 @_exported public import Multiplication
-@_exported public import Numeric_Shims
 @_exported public import Pair
 @_exported public import Quantizer
 @_exported public import Rounding

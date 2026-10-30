@@ -33,7 +33,6 @@ let package = Package(
         .package(url: "https://github.com/swift-atoms/swift-addition.git", branch: "main"),
         .package(url: "https://github.com/swift-atoms/swift-subtraction.git", branch: "main"),
         .package(url: "https://github.com/swift-atoms/swift-multiplication.git", branch: "main"),
-        .package(url: "https://github.com/swift-institute/swift-numeric-shims.git", branch: "main"),
 
         .package(
             url: "https://github.com/swift-atoms/swift-tagged.git",
@@ -85,9 +84,14 @@ let package = Package(
 
                 .product(name: "Tagged", package: "swift-tagged"),
                 .product(name: "Pair", package: "swift-pair"),
-                .product(name: "Numeric Shims", package: "swift-numeric-shims"),
+                .target(name: "Numeric Shims"),
             ],
             path: "Sources/Numeric"
+        ),
+        .target(
+            name: "Numeric Shims",
+            path: "Sources/Numeric Shims",
+            publicHeadersPath: "include"
         ),
 
         .target(
