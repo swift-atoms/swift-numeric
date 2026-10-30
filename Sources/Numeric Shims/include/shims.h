@@ -118,6 +118,10 @@ SHIM_INLINE float shim_tgammaf(float x) {
     return __builtin_tgammaf(x);
 }
 
+SHIM_INLINE float shim_lgammaf(float x) {
+    return __builtin_lgammaf(x);
+}
+
 SHIM_INLINE double shim_exp(double x) {
     return __builtin_exp(x);
 }
@@ -220,6 +224,10 @@ SHIM_INLINE double shim_erfc(double x) {
 
 SHIM_INLINE double shim_tgamma(double x) {
     return __builtin_tgamma(x);
+}
+
+SHIM_INLINE double shim_lgamma(double x) {
+    return __builtin_lgamma(x);
 }
 
 #if !defined(_WIN32) && (defined(__i386__) || defined(__x86_64__))

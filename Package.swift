@@ -33,6 +33,7 @@ let package = Package(
         .package(url: "https://github.com/swift-atoms/swift-addition.git", branch: "main"),
         .package(url: "https://github.com/swift-atoms/swift-subtraction.git", branch: "main"),
         .package(url: "https://github.com/swift-atoms/swift-multiplication.git", branch: "main"),
+        .package(url: "https://github.com/swift-atoms/swift-tolerance.git", branch: "main"),
 
         .package(
             url: "https://github.com/swift-atoms/swift-tagged.git",
@@ -114,6 +115,7 @@ let package = Package(
             dependencies: [
                 .target(name: "Numeric"),
                 .target(name: "Numeric Test Support"),
+                .product(name: "Tolerance", package: "swift-tolerance"),
             ],
             path: "Tests/Numeric Tests"
         ),
