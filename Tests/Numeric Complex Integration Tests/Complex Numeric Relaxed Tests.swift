@@ -3,12 +3,10 @@
     import Numeric
     import Testing
 
-extension `Complex Numeric Relaxed Tests`.`Complex Numeric Relaxed Tests` {
-        @Suite
-        struct `Complex Numeric Relaxed Tests` {}
-}
+    @Suite
+    struct `Complex Numeric Relaxed Tests` {}
 
-    extension `Complex Numeric Relaxed Tests`.`Complex Numeric Relaxed Tests` {
+    extension `Complex Numeric Relaxed Tests` {
 
         @Test
         func `double operations use relaxed scalar arithmetic`() {
