@@ -1,8 +1,8 @@
 import Numeric
 import Testing
 
-@Suite("Numeric Pair")
-struct NumericPairTests {
+@Suite
+struct `Numeric Pair` {
 
     @Test
     func `sign value pairs a sign with a payload`() {
