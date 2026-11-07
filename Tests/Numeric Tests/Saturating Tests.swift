@@ -1,15 +1,25 @@
 import Numeric
 import Testing
 
-@Suite
-struct `Saturating arithmetic clamps at storage boundaries` {
+enum `Saturating Tests` {}
+
+extension `Saturating Tests` {
+    @Suite
+    struct `Saturating arithmetic clamps at storage boundaries` {
+    }
+}
+
+extension `Saturating Tests`.`Saturating arithmetic clamps at storage boundaries` {
     @Suite struct `Unit tests` {}
+
     @Suite struct `Edge cases` {}
+
     @Suite struct `Integration tests` {}
+
     @Suite(.serialized) struct `Performance tests` {}
 }
 
-extension `Saturating arithmetic clamps at storage boundaries`.`Unit tests` {
+extension `Saturating Tests`.`Saturating arithmetic clamps at storage boundaries`.`Unit tests` {
     @Test
     func `saturating add within bounds`() {
         #expect(Int8(100).saturating.add(10) == 110)
@@ -31,7 +41,7 @@ extension `Saturating arithmetic clamps at storage boundaries`.`Unit tests` {
     }
 }
 
-extension `Saturating arithmetic clamps at storage boundaries`.`Edge cases` {
+extension `Saturating Tests`.`Saturating arithmetic clamps at storage boundaries`.`Edge cases` {
     @Test
     func `saturating add clamps at max`() {
         #expect(Int8.max.saturating.add(10) == Int8.max)

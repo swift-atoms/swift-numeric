@@ -4,9 +4,14 @@ import Testing
 
 @Suite
 struct `Optionator Tests` {
-    @Suite struct `Unit tests` {}
     @Suite struct `Edge Case` {}
+}
+
+extension `Optionator Tests` {
+    @Suite struct `Unit tests` {}
+
     @Suite struct `Integration tests` {}
+
     @Suite(.serialized) struct `Performance tests` {}
 }
 

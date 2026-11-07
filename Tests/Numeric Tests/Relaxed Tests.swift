@@ -2,15 +2,25 @@ import Numeric
 import Numeric_Test_Support
 import Testing
 
-@Suite
-struct `Relaxed arithmetic uses Swift operations` {
+enum `Relaxed Tests` {}
+
+extension `Relaxed Tests` {
+    @Suite
+    struct `Relaxed arithmetic uses Swift operations` {
+    }
+}
+
+extension `Relaxed Tests`.`Relaxed arithmetic uses Swift operations` {
     @Suite struct `Unit tests` {}
+
     @Suite struct `Edge cases` {}
+
     @Suite struct `Integration tests` {}
+
     @Suite(.serialized) struct `Performance tests` {}
 }
 
-extension `Relaxed arithmetic uses Swift operations`.`Unit tests` {
+extension `Relaxed Tests`.`Relaxed arithmetic uses Swift operations`.`Unit tests` {
     @Test
     func `sum equals standard addition`() {
         let a = 1.5
@@ -92,7 +102,7 @@ extension `Relaxed arithmetic uses Swift operations`.`Unit tests` {
     }
 }
 
-extension `Relaxed arithmetic uses Swift operations`.`Edge cases` {
+extension `Relaxed Tests`.`Relaxed arithmetic uses Swift operations`.`Edge cases` {
     @Test
     func `infinity handling`() {
         #expect(Numeric::Numeric.Relaxed.sum(Double.infinity, 1.0) == Double.infinity)
@@ -114,7 +124,7 @@ extension `Relaxed arithmetic uses Swift operations`.`Edge cases` {
     }
 }
 
-extension `Relaxed arithmetic uses Swift operations`.`Integration tests` {
+extension `Relaxed Tests`.`Relaxed arithmetic uses Swift operations`.`Integration tests` {
     @Test
     func `sum of squares pattern`() {
         let values: [Double] = [1.0, 2.0, 3.0, 4.0, 5.0]

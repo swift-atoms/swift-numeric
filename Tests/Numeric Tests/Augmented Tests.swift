@@ -1,15 +1,25 @@
 import Numeric
 import Testing
 
-@Suite
-struct `Augmented arithmetic forwards to the owning operations` {
+enum `Augmented Tests` {}
+
+extension `Augmented Tests` {
+    @Suite
+    struct `Augmented arithmetic forwards to the owning operations` {
+    }
+}
+
+extension `Augmented Tests`.`Augmented arithmetic forwards to the owning operations` {
     @Suite struct `Unit tests` {}
+
     @Suite struct `Edge cases` {}
+
     @Suite struct `Integration tests` {}
+
     @Suite(.serialized) struct `Performance tests` {}
 }
 
-extension `Augmented arithmetic forwards to the owning operations`.`Unit tests` {
+extension `Augmented Tests`.`Augmented arithmetic forwards to the owning operations`.`Unit tests` {
     @Test
     func `exact product has zero tail`() {
         let (head, tail) = Numeric.Augmented.product(2.0, 3.0)
@@ -99,7 +109,7 @@ extension `Augmented arithmetic forwards to the owning operations`.`Unit tests` 
     }
 }
 
-extension `Augmented arithmetic forwards to the owning operations`.`Edge cases` {
+extension `Augmented Tests`.`Augmented arithmetic forwards to the owning operations`.`Edge cases` {
     @Test
     func `infinity handling in sum`() {
         let (head, _) = Numeric.Augmented.sum(0.0, Double.infinity)
@@ -146,7 +156,7 @@ extension `Augmented arithmetic forwards to the owning operations`.`Edge cases` 
     }
 }
 
-extension `Augmented arithmetic forwards to the owning operations`.`Integration tests` {
+extension `Augmented Tests`.`Augmented arithmetic forwards to the owning operations`.`Integration tests` {
     @Test
     func `compensated sum captures lost precision`() {
         let big = 1e16
