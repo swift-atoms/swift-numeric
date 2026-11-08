@@ -55,13 +55,14 @@ extension Numeric.Sign {
 
     @inlinable
     public init<T: Comparable & AdditiveArithmetic>(_ value: T) {
-        self = if value > .zero {
-            .positive
-        } else if value < .zero {
-            .negative
-        } else {
-            .zero
-        }
+        self =
+            if value > .zero {
+                .positive
+            } else if value < .zero {
+                .negative
+            } else {
+                .zero
+            }
     }
 }
 
