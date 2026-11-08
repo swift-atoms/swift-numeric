@@ -2,7 +2,7 @@ import Testing
 
 @testable import Numeric
 
-@Suite("Numeric.Math.SignGamma Edge Case")
+@Suite
 struct Tests {
 
     @Test
