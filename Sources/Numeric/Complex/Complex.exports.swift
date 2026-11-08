@@ -1,3 +1,3 @@
 #if Complex
-    @_exported public import Complex
+    public import Complex
 #endif

@@ -7,3 +7,15 @@
 @_exported public import Subtraction
 @_exported public import Tagged
 @_exported public import Trigonometry
+
+#if Finite
+    @_exported public import Cardinal
+    @_exported public import Finite
+    @_exported public import Index
+    @_exported public import Ordinal
+    @_exported public import Tagged
+#endif
+
+#if Complex
+    @_exported public import Complex
+#endif
