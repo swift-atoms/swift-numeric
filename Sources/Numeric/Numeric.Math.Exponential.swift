@@ -10,8 +10,8 @@ extension Numeric.Math.Exponential {
         let k = (x * inverse).rounded(.toNearestOrEven)
         let index = Int(k)
         var r = Numeric.Math.Pair(x - k * step[0])
-        r = r + Numeric.Math.Pair.product(-k, step[1])
-        r = r + -k * step[2]
+        r += Numeric.Math.Pair.product(-k, step[1])
+        r += -k * step[2]
         let h = r.high
         let q = h * h * (0.5 + h * (1.0 / 6 + h * (1.0 / 24 + h * (1.0 / 120 + h / 720))))
         let power = powers[index & 127]
@@ -30,8 +30,8 @@ extension Numeric.Math.Exponential {
         let k = (x * inverse).rounded(.toNearestOrEven)
         let index = Int(k)
         var r = Numeric.Math.Pair(x - k * step[0])
-        r = r + Numeric.Math.Pair.product(-k, step[1])
-        r = r + -k * step[2]
+        r += Numeric.Math.Pair.product(-k, step[1])
+        r += -k * step[2]
         let h = r.high
         var tail = factorials[11].high
         for n in [10, 9, 8, 7, 6] {

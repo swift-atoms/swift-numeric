@@ -36,10 +36,10 @@ extension Numeric.Math.Trigonometric {
         guard x.magnitude < 1.5e6, x.magnitude > 0x1p-26 else { return nil }
         let k = (x * (2 / Double.pi)).rounded(.toNearestOrEven)
         var r = Numeric.Math.Pair(x - k * quarter[0])
-        r = r + Numeric.Math.Pair.product(-k, quarter[1])
-        r = r + Numeric.Math.Pair.product(-k, quarter[2])
-        r = r + Numeric.Math.Pair.product(-k, quarter[3])
-        r = r + -k * quarter[4]
+        r += Numeric.Math.Pair.product(-k, quarter[1])
+        r += Numeric.Math.Pair.product(-k, quarter[2])
+        r += Numeric.Math.Pair.product(-k, quarter[3])
+        r += -k * quarter[4]
         let y = r.high
         let index = Int((y.magnitude * 64).rounded(.toNearestOrEven))
         let sign: Double = y < 0 ? -1 : 1
@@ -75,9 +75,9 @@ extension Numeric.Math.Trigonometric {
             let k = (x * (2 / Double.pi)).rounded(.toNearestOrEven)
             var r = Numeric.Math.Pair(x - k * quarter[0])
             for part in quarter[1...3] {
-                r = r + Numeric.Math.Pair.product(-k, part)
+                r += Numeric.Math.Pair.product(-k, part)
             }
-            r = r + -k * quarter[4]
+            r += -k * quarter[4]
             return Reduced(quadrant: Int(k) & 3, angle: r)
         }
         let significand = UInt64(x.significandBitPattern) | (1 << 52)

@@ -54,6 +54,14 @@ extension Numeric.Math.Pair {
         return up == down ? up : nil
     }
 
+    static func += (a: inout Self, b: Self) {
+        a = a + b
+    }
+
+    static func += (a: inout Self, b: Double) {
+        a = a + b
+    }
+
     static prefix func - (a: Self) -> Self {
         Self(-a.high, -a.low)
     }

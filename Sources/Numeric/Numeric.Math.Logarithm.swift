@@ -64,10 +64,10 @@ extension Numeric.Math.Logarithm {
         }
         let exponent = Double(power)
         var total = Numeric.Math.Pair(exponent * two[0])
-        total = total + Numeric.Math.Pair.product(exponent, two[1])
-        total = total + exponent * two[2]
-        total = total + entry.logarithm
-        total = total + r * series
+        total += Numeric.Math.Pair.product(exponent, two[1])
+        total += exponent * two[2]
+        total += entry.logarithm
+        total += r * series
         value = total.high + total.low
         return value
     }
