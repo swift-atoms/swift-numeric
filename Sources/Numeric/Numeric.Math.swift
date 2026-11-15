@@ -7,13 +7,13 @@ extension Numeric {
 
 extension Numeric.Math {
     @usableFromInline
-    internal static func exp(_ x: Float) -> Float { shim_expf(x) }
+    internal static func exp(_ x: Float) -> Float { Float(Exponential.exp(Double(x))) }
 
     @usableFromInline
     internal static func expm1(_ x: Float) -> Float { shim_expm1f(x) }
 
     @usableFromInline
-    internal static func log(_ x: Float) -> Float { shim_logf(x) }
+    internal static func log(_ x: Float) -> Float { Float(Logarithm.log(Double(x))) }
 
     @usableFromInline
     internal static func log1p(_ x: Float) -> Float { shim_log1pf(x) }
@@ -25,10 +25,10 @@ extension Numeric.Math {
     internal static func log10(_ x: Float) -> Float { shim_log10f(x) }
 
     @usableFromInline
-    internal static func sin(_ x: Float) -> Float { shim_sinf(x) }
+    internal static func sin(_ x: Float) -> Float { Float(Trigonometric.sin(Double(x))) }
 
     @usableFromInline
-    internal static func cos(_ x: Float) -> Float { shim_cosf(x) }
+    internal static func cos(_ x: Float) -> Float { Float(Trigonometric.cos(Double(x))) }
 
     @usableFromInline
     internal static func tan(_ x: Float) -> Float { shim_tanf(x) }
@@ -103,13 +103,13 @@ extension Numeric.Math {
 
 extension Numeric.Math {
     @usableFromInline
-    internal static func exp(_ x: Double) -> Double { shim_exp(x) }
+    internal static func exp(_ x: Double) -> Double { Exponential.exp(x) }
 
     @usableFromInline
     internal static func expm1(_ x: Double) -> Double { shim_expm1(x) }
 
     @usableFromInline
-    internal static func log(_ x: Double) -> Double { shim_log(x) }
+    internal static func log(_ x: Double) -> Double { Logarithm.log(x) }
 
     @usableFromInline
     internal static func log1p(_ x: Double) -> Double { shim_log1p(x) }
@@ -121,10 +121,10 @@ extension Numeric.Math {
     internal static func log10(_ x: Double) -> Double { shim_log10(x) }
 
     @usableFromInline
-    internal static func sin(_ x: Double) -> Double { shim_sin(x) }
+    internal static func sin(_ x: Double) -> Double { Trigonometric.sin(x) }
 
     @usableFromInline
-    internal static func cos(_ x: Double) -> Double { shim_cos(x) }
+    internal static func cos(_ x: Double) -> Double { Trigonometric.cos(x) }
 
     @usableFromInline
     internal static func tan(_ x: Double) -> Double { shim_tan(x) }
@@ -200,13 +200,13 @@ extension Numeric.Math {
 #if os(iOS) || os(tvOS) || os(watchOS) || os(visionOS) || ((os(macOS) || targetEnvironment(macCatalyst)) && arch(arm64))
     extension Numeric.Math {
         @usableFromInline
-        internal static func exp(_ x: Float16) -> Float16 { Float16(shim_expf(Float(x))) }
+        internal static func exp(_ x: Float16) -> Float16 { Float16(exp(Float(x))) }
 
         @usableFromInline
         internal static func expm1(_ x: Float16) -> Float16 { Float16(shim_expm1f(Float(x))) }
 
         @usableFromInline
-        internal static func log(_ x: Float16) -> Float16 { Float16(shim_logf(Float(x))) }
+        internal static func log(_ x: Float16) -> Float16 { Float16(log(Float(x))) }
 
         @usableFromInline
         internal static func log1p(_ x: Float16) -> Float16 { Float16(shim_log1pf(Float(x))) }
@@ -218,10 +218,10 @@ extension Numeric.Math {
         internal static func log10(_ x: Float16) -> Float16 { Float16(shim_log10f(Float(x))) }
 
         @usableFromInline
-        internal static func sin(_ x: Float16) -> Float16 { Float16(shim_sinf(Float(x))) }
+        internal static func sin(_ x: Float16) -> Float16 { Float16(sin(Float(x))) }
 
         @usableFromInline
-        internal static func cos(_ x: Float16) -> Float16 { Float16(shim_cosf(Float(x))) }
+        internal static func cos(_ x: Float16) -> Float16 { Float16(cos(Float(x))) }
 
         @usableFromInline
         internal static func tan(_ x: Float16) -> Float16 { Float16(shim_tanf(Float(x))) }
